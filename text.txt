@@ -1,0 +1,3 @@
+//Advanced for loop
+for(datatype n: array_name){ (for each element n in array element)
+system.out.printlm(n);}
