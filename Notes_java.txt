@@ -1,0 +1,412 @@
+//Advanced for loop
+for(datatype n: array_name){ (for each element n in array element)
+system.out.printlm(n);}
+
+//wrapper class is use to convert primitive datatype to 
+-----------------
+class & object
+Object: real world entity - state and behavior
+class: textual representation of an object/ blueprint
+
+class ClassName{
+    //attributes
+    dataType VariableName;
+    //behavior/fuctionalities
+   returntype/void method(dataType param1, dataType param2,,)
+   {
+   }
+}
+-----------------------------------------------------------
+access modifiers - default, private, public, protected
+               default - within the package
+               private - within the class
+               protected - within the class/subclass- same/other package
+---------------------------------------------------------------------------               
+class Employee
+{
+    int empid;  //instance variable(object specific)
+    String name; //instance variable
+    int salary;
+    static final double COMM = 0.25; //final variable
+    static String compName = "WIPRO";
+
+    void display()
+    {
+        System.out.println("Employee Detail: Empid = "+empid+"Name = "+name+" Salary = "+salary+" Company name = " +compName);
+    }
+    int calcSal(){ //user defined method
+        int newSal = 0; //local variable
+        //code
+        return newSal;
+    }
+
+public class TestEmployee
+{
+    public static void main(String[] args){
+Scanner sc = new Scanner(System.in);+
+Employee e1 = new Employee(); //default/ non parameter constructor- initialise the object e1
+System.out.println("Enter the employee details: Empid/Name/Salary");
+e1.empid = sc.nextInt();
+e1.name = sc.next();
+e1.salary = sc.next();
+e1.display();
+    }
+}
+--------------------------------------------
+Read one Employee details EmpId, name Salary from user, and create an employee object using a parameter constructor and display the details 
+Oops:
+Inheritance
+ -Object acquire the properties and behaviour of another object
+Parent/base
+
+Child/sub/derived
+
+     Animal
+Birds      Reptiles
+Type:
+Single    Multiple       Multilevel  Hierarchical       Hybrid
+Class A   ClassA ClassB  Class A        Class A          Class A
+    |            |          |           |     |          |      |
+Class B       Class C    Class B    Class B Class C   Class B   Class D
+                            |                            |
+                         Class C                      Class C
+
+
+
+Person
+ name
+ age
+ display()
+Student is a type of Person
+ rNo
+ Score
+ grade
+ calcGrade()
+Employee
+ empid
+ Salary
+ ClacSal()
+HourlyEmployee is a type of Employee
+ chargePerHour
+ noOfHours
+Customer
+ custid
+ calcRewardPoints()
+
+Class Person
+{
+ String name;
+ int age;
+ Person() //constructor
+ {
+ }
+ Person(String name, int age)
+  {
+  this.name = name;
+  this.age  = age;
+  }
+ void display() //instance method
+    {
+     System.out.print;l("Name "+name+" Age: "+age);
+    }
+}
+Class student ectends Person // Student IS-A type of Person
+{
+   //String name;
+   //int age;  no need to write it again as it is already in the parent class
+   int rNo;
+   int score;
+   String grade;
+   student(){
+     super();
+   }
+   student(String name,int age, int rNo, int score)
+  {
+     super(name, age);
+    //this.name = name;
+    //this.age = age;
+    this.rNo = rNo;
+    this.score = score;
+    this.grade = this.calcGrade();
+  }
+   void display()
+   {
+    System.out.println("Name="+name+" Age="+age+" Score= "+score+" RNo="+rNo+ Grades= "+grade);
+   }
+                    Or
+ void display() //instance method
+   {
+     super.display(); //invoke parent class(super = parent object)
+    System.out.println(" Score= "+score+" RNo="+rNo+ Grades= "+grade);
+   }
+ String calcGrade()
+  {
+    String studGrade = "";
+    if(score >= 90 && score <= 100)
+      studGrade = "A+";
+    elseif(score >= 80 && score <= 90)
+      studGrade = "B+";
+    elseif(score >= 70 && score <= 80)
+      studGrade = "C";
+    else
+       studGrade = "D";
+    return studGrade;
+  }
+}
+ class Testinherit
+  {
+   public static void main(String[] a){
+    System.out.println("Person");
+    person p = new person("john",20);
+    p.display();
+    System.out.println("student");
+    student s = new student("Zunaira",22,2,45);
+    s.display();
+    student s1 = new student();
+    }
+  }
+//at First there will be default constructor but if we create a parameterised constructor then we have to make a default constructor as the default constructor will be replaced by parameterised constructor
+
+Hybrid
+   person
+   |     |
+ student  Employee
+             |
+           HourlyEmployee
+
+---------------------------
+Polymorphism
+realised/resolved during run-time(dynamic polymorphism) or during compile-time(static polymorphism)
+for static ploymorphism- method name(same)
+                       - method signature(diff)
+                       - parameter(number/order/data type)
+class Testclass
+{
+    void display(int a, string b)
+{
+    System.out.println(a);
+}
+    void display(int b)
+{
+    System.out.println(b);
+}
+}
+
+Run-time ploymorphism- dynamic polymorohism- method overriddig
+
+class BaseClass
+{
+   void display()
+{
+    System.out.println("BaseClass Display");
+}
+}
+
+class DerivedClass extends BaseClass
+{
+   void method()
+{
+
+}
+    void display()
+{
+    System.out.println("DerivedClass Display");
+}
+}
+
+class TestPloy
+{
+   public static void main(String[] args)
+{
+     BaseClass bc = new BaseClass();
+     bc.display();
+     DerivedClass dc = new DerivedClass();
+     BaseClass bdc = new DerivedClass();
+     bdc.display();  //derivedClass display
+     bdc.method(); xxxxxxxxxxx
+}
+
+}
+
+Abstraction -functionalities are just declared and its details are hidden.
+            - 0 10 100% abstraction can be achieve
+1. 
+2. 
+3.
+  
+* abstraction class => 0% means the abstract class dont have any abstract method
+100% means all the method are abstract type
+
+class NormalClass
+{
+   int VarName;
+   void nonAbstractMethod()
+   {}
+}
+abstract class AbsClass
+{
+  int varName;
+  void NnonAbsMethod()
+  {}
+  void abstarctMethod();
+  //dont have body
+  //it shouold redined in the child class
+}
+class DerivedClass extends AbsClass
+{
+    void method()
+    {}
+    void absMethod()
+    {}
+}
+abstract class Instrument
+{
+  abstract void play();
+}
+class Piano extends Instrument
+{
+  void play()
+    {
+    System.out.println("Piano is playing");
+    }
+  void newplay()
+    {
+      System.out.println("new option");
+    }
+}
+class player
+{
+  public static void main(String[] a){
+    Piano p = new Piano();
+    p.play();
+    p.newplay();
+    instrument i = new Instrument(); xxxxx // abstract class so i can not directly instantiated the class object as abstract class dont allow instantiation to object
+    Instrument instArray = new Instrument[5]; //null
+    instArray[0] = new Piano();
+    instrument i = new Piano();
+    i.play();
+    i.newplay(); xxxxxxx
+  }
+}
+// if you dont refine the abstract method in the child class then the class will become another abstract class
+---------------------------------------------
+Interface 
+-----------------------
+//in this even objects can not directly instantiated 
+provide 100% abstraction
+public, Static, final corresponding field
+interface Interface1
+{
+    int num = 10; //public, Static, final(variables only)
+    void method1();
+    int method2(); // consider by default public and abstract
+    int method(int n);
+}
+class DerivedClass implements Interface1(, Interface2....)
+//this derived class redefine each and every abstact method of interface class
+{
+   public int method(int n)
+   {
+     int nm = 0;
+      //code
+     return nm;
+   }
+   public void method1()
+   {
+
+     int n = Interface1.num;
+         OR
+     int n = new DerivedClass().num; =     
+
+  //logic 1 to acees Interface variable num 
+  int n= num;
+  n = n*5;
+  //logic 2 to acess Interface variable num    
+  n = Interface1.num;
+  //logic 3 to access Interface variable num
+  DerivedClass obj = new DerivedClass();
+     n= obj.num;
+   }
+   public int method2() //method will be public as it is in base class as we are overridden the method
+   {
+     int n= 0;
+     //code
+    return n;
+   }
+   int newMethod()
+   {
+     int n = num;
+   }
+   public static void main(String[] a){
+     DerivedClass dc = new Deri
+  }
+}
+interface car
+{
+
+}
+class swift implements car
+{}
+class Innova implemets car
+{}
+
+//if 2 interface has same method name then in the implement class 
+
+
+
+------------------
+Marker Interface
+-----------------
+   
+class Employee implemnets cloneable
+{
+   int empid;
+   String name;
+   int sal;
+public String toString()
+{
+   return"Employee[Empid="+empid+" Name= "+name+" Salary="+sal"]";
+}
+
+public Static void main(String[] a){
+  
+  Employee e = new Employee();
+  System.out.println(e);
+  Employee e2 = e1;
+  Systwm.out.println(e2);
+   e1.empid = 100;
+   e1.name = "zunaira";
+   e1.sal = 20000;
+   sop(e1);
+   sop(e2); //same as e1
+
+   Employee e3 = (Employee)e1.getCloned();
+   s.o.p(e3);
+}
+
+public Object getCloned() throws CloneNotSupportedException
+  {
+    trysuper.cloned();
+  }
+}
+
+    
+*********************************************************************
+   JDBC API
+javaApp ----> DataBase
+java stmts    sql queries
+
+CRUD
+1. register/Load the driver class
+2. create connection
+3. create/prepare statement
+4. execute statement
+5. process result
+6. close connection
+
+1. Register/Load the Driver class
+    class.forName("oracle.jdbc.driver.OracleDriver");
+
+2. Create connection
+     connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","password");
+
