@@ -1,0 +1,14 @@
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+import com.wipro.test.TestCheckPresence;
+import com.wipro.test.TestSort;
+import com.wipro.test.TestStringConcat;
+
+	@RunWith(Suite.class)
+	@Suite.SuiteClasses({
+		TestCheckPresence.class,
+		TestSort.class,
+		TestStringConcat.class
+	})
+	public class TestSuite {
+}

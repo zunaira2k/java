@@ -1,0 +1,10 @@
+Anitha : 1
+Harisha : 1
+Janani : 1
+Katari : 1
+Manoj : 1
+Sureka : 1
+Wipro : 7
+Zunaira : 1
+at : 7
+works : 7

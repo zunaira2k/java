@@ -1,0 +1,19 @@
+package com.wipro.test;
+
+import org.junit.jupiter.api.Assertions;
+
+import org.junit.jupiter.api.Test;
+
+import com.wipro.task.DailyTasks;
+
+public class TestCheckPresence {
+	DailyTasks d = new DailyTasks();
+	
+	@Test
+	public void method() {
+		String s = "happy";
+		Assertions.assertTrue(d.checkPresence(s, "y"),"Y is present in the string");
+		Assertions.assertFalse(d.checkPresence(s,"f"),"F is not present in the string ");
+	}
+
+}
